@@ -26,8 +26,12 @@ app.use(express.json())
 app.use(cors())
 
 //Create GET request
-app.get('/', (request, response) => {
-    
+app.get('/', async (request, response) => {
+    try {
+        response.render('index.ejs')
+    } catch(error) {
+        response.status(500).send({message: error.message})
+    }
 })
 
 //Create port to listen on 
