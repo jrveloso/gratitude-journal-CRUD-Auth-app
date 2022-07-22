@@ -12,6 +12,19 @@ app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
 app.use(cors())
 
+//Declare MongoDB variables and connect to database
+let db,
+    dbConnectionString = process.env.DB_STRING,
+    dbName = 'gratitude-journal',
+    collection
+
+MongoClient.connect(dbConnectionString)
+    .then(client => {
+        console.log(`Connected to database`)
+        db = client.db(dbName)
+        collection = db.collection('movies')
+    })
+
 //Create GET request
 app.get('/', (request, response) => {
     
