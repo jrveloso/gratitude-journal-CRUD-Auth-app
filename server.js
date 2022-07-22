@@ -5,12 +5,6 @@ const cors = require('cors')
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
-//Set middleware
-app.set('view engine', 'ejs')
-app.use(express.static('public'))
-app.use(express.urlencoded({extended: true}))
-app.use(cors())
-
 //Declare MongoDB variables and connect to database
 let db,
     dbConnectionString = process.env.DB_STRING,
@@ -23,6 +17,13 @@ MongoClient.connect(dbConnectionString)
         db = client.db(dbName)
         collection = db.collection('daily-entry')
     })
+
+//Set middleware
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({extended: true}))
+app.use(express.json())
+app.use(cors())
 
 //Create GET request
 app.get('/', (request, response) => {
