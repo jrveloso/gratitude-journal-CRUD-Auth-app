@@ -22,7 +22,7 @@ MongoClient.connect(dbConnectionString)
     .then(client => {
         console.log(`Connected to database`)
         db = client.db(dbName)
-        collection = db.collection('movies')
+        collection = db.collection('daily-entry')
     })
 
 //Create GET request
