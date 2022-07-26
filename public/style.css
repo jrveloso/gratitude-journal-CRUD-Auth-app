@@ -1,3 +1,87 @@
-h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+/* Set overall font size*/
+html {
+    font-size: 62.5%;
+    font-family: 'Lexend', sans-serif;
+}
+
+/* Get rid of default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set color and height of body */
+body {
+    background: #D8E2DC;
+}
+
+/* Create flex container */
+#container {
+    height: 100vh;
+    border: 2px black solid;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    gap: 2.5%;
+}
+
+/* Set nav at end of grid, set size */
+nav {
+    justify-self: end;
+    width: 50%;
+}
+
+/* Set ul color and size */
+#journal-entries {
+    background: #FFE5D9;
+    height: 75vh;
+    justify-self: end;
+}
+
+/* Delete bullet points in ul */
+ul {
+    list-style-type: none;
+}
+
+/* Set styling and size of main */
+#journal-container {
+    background: #FFE5D9;
+    height: 75vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    gap: 48px;
+}
+
+#journal-container > h2 {
+    align-self: center;
+    font-size: 4rem;
+    margin-top: 48px;
+}
+
+/* Make form flex container and column */
+.daily-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Style and set size of input boxes */
+.daily-entry > input {
+    width: 90%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px black solid;
+    line-height: 5rem;
+    font-size: 2.5rem;
+}
+
+/* Style button */
+.daily-entry > button {
+    border: none;
+    padding: 16px;
+    font-family: 'Lexend', sans-serif;
 }

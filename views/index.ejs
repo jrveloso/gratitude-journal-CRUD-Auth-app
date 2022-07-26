@@ -5,25 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gratitude Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section id="container">
         <nav>
             <ul id="journal-entries">
-                <li class="past-entry">
-                    <div class="date">
-                        
-                    </div>
-                </li>
+                <% for(var i = 0; i < entries.length; i++) {%>
+                    <li class="entry">
+                        <span><%= entries[i].date %></span>
+                        <span><%= entries[i].first %></span>
+                        <span><%= entries[i].second %></span>
+                        <span><%= entries[i].third %></span>
+                    </li>
+                <% } %>
             </ul>
+            
         </nav>
         <main id="journal-container">
             <h2>today I'm grateful for</h2>
             <form action="/" method="POST" class="daily-entry">
-                <input type="text" name="first-entry">
-                <input type="text" name="second-entry">
-                <input type="text" name="third-entry">
+                <input type="date" placeholder="date" name="date">
+                <input type="text" placeholder="1st thing" name="first">
+                <input type="text" placeholder="2nd thing" name="second">
+                <input type="text" placeholder="3rd thing" name="third">
                 <button type="submit">Submit</button>
             </form>
         </main>
