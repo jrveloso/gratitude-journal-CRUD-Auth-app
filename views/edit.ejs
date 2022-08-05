@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <section id="container">
@@ -25,15 +25,22 @@
             
         </nav>
         <main id="journal-container">
-            <h2>today I'm grateful for</h2>
-            <form action="/" method="POST" class="daily-entry">
-                <input type="date" placeholder="date" name="date">
-                <input type="text" placeholder="1st thing" name="first">
-                <input type="text" placeholder="2nd thing" name="second">
-                <input type="text" placeholder="3rd thing" name="third">
-                <button type="submit">submit</button>
-            </form>
+            
+            <% entries.forEach(entry => { %>
+                <% if (entry._id == idEntry) { %>
+                <h2><%= entry.date %></h2>
+                    <form action="/edit/<%=entry._id %>" method="POST" class="daily-entry">
+                        <input type="text" value="<%= entry.first %>" name="first">
+                        <input type="text" value="<%= entry.second %>" name="second">
+                        <input type="text" value="<%= entry.third %>" name="third">
+                        <button type="submit" id="update">update</button>
+                        <button type="submit" data-doc="<%= entry._id %>" id="delete-button">delete</button>
+                    </form>
+                <% } %>
+            <% }) %>
         </main>
     </section>
+
+    <script src="../main.js"></script>
 </body>
 </html>
