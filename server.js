@@ -2,6 +2,8 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const { response } = require('express')
+const { ObjectId } = require('mongodb')
 const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
@@ -45,6 +47,70 @@ MongoClient.connect(dbConnectionString)
                 })
                 .catch(error => console.error(error))
     })
+
+    //EDIT and update an entry
+    app 
+        .route('/edit/:id')
+        .get((request, response) => {
+            //store id of request in variable 'id'
+            const id = request.params.id
+            console.log(`${id}`)
+            //create array of 
+            // console.log(collection.find())
+            collection.find().toArray()
+            //render edit page
+            //put date into h2
+            .then(results => {
+                response.render('edit.ejs', { 
+                    entries : results, 
+                    idEntry: id
+                })
+            })
+        })
+        .post((request, response) => {
+            const id = request.params.id
+            console.log(`${id}`)
+            collection.findOneAndUpdate(
+                { _id: ObjectId(id)},
+                {
+                    $set: { 
+                        "first": request.body.first,
+                        "second": request.body.second,
+                        "third": request.body.third }
+                })
+            response.redirect('/')
+            
+    })
+
+    //DELETE
+    app
+        .route('/edit/:id')
+        .get((request, response) => {
+            //store id of request in variable 'id'
+            const id = request.params.id
+            console.log(`${id}`)
+            //create array of 
+            // console.log(collection.find())
+            collection.find().toArray()
+            //render edit page
+            //put date into h2
+            .then(results => {
+                response.render('edit.ejs', { 
+                    entries : results, 
+                    idEntry: id
+                })
+            })
+        })
+        .delete((request, response) => {
+            const id = request.params.id
+            collection.findOneAndDelete( 
+                { _id: ObjectId(id) })
+            .then(result => {
+                console.log('success')
+                response.json({ redirect: '/'})
+            })
+            .catch(err => console.log(err))
+        })
 
     //Create port to listen on 
     app.listen(process.env.PORT || PORT, () => {
