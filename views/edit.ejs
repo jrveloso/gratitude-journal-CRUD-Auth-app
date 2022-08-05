@@ -14,6 +14,7 @@
     <section id="container">
         <nav>
             <ul id="journal-entries">
+                <h2>past entries</h2>
                 <% entries.forEach(entry => {%>
                     <li class="entry">
                         <a href="/edit/<%=entry._id %>"><span><%= entry.date %></span></a>
