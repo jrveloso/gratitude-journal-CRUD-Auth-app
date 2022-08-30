@@ -82,7 +82,7 @@ MongoClient.connect(dbConnectionString)
             
     })
 
-    //DELETE stuffs
+    //DELETE stuffss
     app
         .route('/edit/:id')
         .get((request, response) => {
