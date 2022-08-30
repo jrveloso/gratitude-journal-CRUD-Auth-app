@@ -1,5 +1,5 @@
 Simple CRUD app
-https://fullstack-gratitude-journal.herokuapp.com/
+https://gratitude-journal-crud-app.herokuapp.com/
 The goal was to create a simple applicaton that could Create, Read, Update and Delete documents from a database
 
 Lessons Learned 💭
