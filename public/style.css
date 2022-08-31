@@ -118,3 +118,22 @@ ul {
     color: #ffffff;
     cursor: pointer;
 }
+@media (max-width: 667px) {
+    #container {
+        grid-template-columns: 1fr;
+        /* justify-content: center; */
+        /* gap: 2.5%; */
+    }
+    nav {
+        width: 90%;
+        grid-row: 2 / 3;
+        justify-self: center;
+    }
+    #journal-entries {
+        height: 25vh;
+        grid-row: 1 / 2;
+    }
+    h2 {
+        text-align: center;
+    }
+}
