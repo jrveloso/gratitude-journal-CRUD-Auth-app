@@ -37,7 +37,7 @@ body {
 
 /* Set nav at end of grid, set size */
 #logout {
-    color: inherit;
+    color: black;
     text-decoration: none;
     font-size: 1.75rem;
     padding: 10px;
@@ -259,7 +259,7 @@ ul {
         justify-content: center;
         position: absolute;
         width: 90%;
-        height: 80%;
+        height: 90%;
         top: 60px;
     }
     .entry span {
@@ -268,7 +268,9 @@ ul {
     #journal-container {
         align-self: start;
         width: 90%;
-        /* height: 80vh; */
+    }
+    #journal-container h2 {
+        font-size: 2.8rem;
     }
     .daily-entry > input {
         font-size: 1.5rem;
