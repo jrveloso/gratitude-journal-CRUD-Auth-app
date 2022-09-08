@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <a href="/logout" id="logout">Logout</a>
@@ -25,6 +25,7 @@
                 <% }) %>
             </ul>
             <ul id="journal-entries-mobile">
+                <a href="/logout" id="logout-mobile">Logout</a>
                 <h2>past entries</h2>
                 <% entries.forEach(entry => {%>
                     <li class="entry">
@@ -38,21 +39,16 @@
         </nav>
 
         <main id="journal-container">
-            <% entries.forEach(entry => { %>
-                <% if (entry._id == idEntry) { %>
-                <h2><%= entry.date.toDateString() %></h2>
-                    <form class="daily-entry">
-                        <input type="text" id="first" value="<%= entry.first %>" name="first">
-                        <input type="text" id="second" value="<%= entry.second %>" name="second">
-                        <input type="text" id="third" value="<%= entry.third %>" name="third" data-third="">
-                        <span id="update" data-id='<%=entry._id%>'>update</span>
-                        <span id="delete-button" data-id='<%=entry._id%>'>delete</span>
-                    </form>
-                <% } %>
-            <% }) %>
+            <h2>today I'm grateful for</h2>
+            <form action="/entries/createEntry" method="POST" class="daily-entry">
+                <input type="text" placeholder="1st thing" name="first">
+                <input type="text" placeholder="2nd thing" name="second">
+                <input type="text" placeholder="3rd thing" name="third">
+                <button type="submit">submit</button>
+            </form>
         </main>
     </section>
-    <script src="/js/main.js"></script>
     <script src="https://kit.fontawesome.com/2a62a14c4f.js" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
