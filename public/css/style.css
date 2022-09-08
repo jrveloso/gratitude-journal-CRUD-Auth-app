@@ -268,7 +268,7 @@ ul {
     #journal-container {
         align-self: start;
         width: 90%;
-        height: 60vh;
+        /* height: 80vh; */
     }
     .daily-entry > input {
         font-size: 1.5rem;
