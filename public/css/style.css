@@ -22,6 +22,14 @@ body {
     text-align: center;
     gap: 32px;
     height: 100vh;
+    max-width: 30vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width: 480px) {
+    #create {
+        max-width: 60vw;
+    }
 }
 #create h1 {
     font-size: 4rem;
@@ -157,7 +165,7 @@ ul {
     outline: none;
 }
 .login-signup-input {
-    width: 25%;
+    width: 100%;
     margin: 16px;
     background: transparent;
     border: none;
